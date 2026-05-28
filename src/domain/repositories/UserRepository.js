@@ -34,13 +34,12 @@ export class UserRepository {
     const { name, email, password_hash, photo_url } = userData;
     const query = `
       UPDATE users
-      SET name = $1, email = $2, password_hash = $3, photo_url = $4
-      WHERE id = $5
+      SET name = $1, password_hash = $2, photo_url = $3
+      WHERE id = $4
       RETURNING *
     `;
     const { rows } = await pool.query(query, [
       name,
-      email,
       password_hash,
       photo_url,
       id,
