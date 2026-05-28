@@ -3,15 +3,15 @@ import { User } from "../models/User.js";
 
 export class UserRepository {
   async create(userData) {
-    const { name, email, password_hash, photo_url } = userData;
+    const { name, username, password_hash, photo_url } = userData;
     const query = `
-      INSERT INTO users (name, email, password_hash, photo_url)
+      INSERT INTO users (name, username, password_hash, photo_url)
       VALUES ($1, $2, $3, $4)
       RETURNING *
     `;
     const { rows } = await pool.query(query, [
       name,
-      email,
+      username,
       password_hash,
       photo_url,
     ]);
@@ -31,7 +31,7 @@ export class UserRepository {
   }
 
   async update(id, userData) {
-    const { name, email, password_hash, photo_url } = userData;
+    const { name, password_hash, photo_url } = userData;
     const query = `
       UPDATE users
       SET name = $1, password_hash = $2, photo_url = $3
