@@ -11,4 +11,4 @@ router.get("/", (req, res) => voteController.findAll(req, res));
 router.patch("/:id", (req, res) => voteController.update(req, res));
 router.delete("/:id", (req, res) => voteController.delete(req, res));
 
-export { router as votesRoutes };
+export { router as voteRoutes };
