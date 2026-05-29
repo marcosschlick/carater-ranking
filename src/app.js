@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { userRoutes } from "./http/routes/UserRoutes.js";
 import { characterRoutes } from "./http/routes/CharacterRoutes.js";
 import { rankingRoutes } from "./http/routes/RankingRoutes.js";
+import { rankingItemRoutes } from "./http/routes/RankingItemRoutes.js";
 
 dotenv.config();
 
@@ -27,5 +28,6 @@ app.get("/", async (req, res) => {
 app.use("/users", userRoutes);
 app.use("/characters", characterRoutes);
 app.use("/rankings", rankingRoutes);
+app.use("/ranking-itens", rankingItemRoutes);
 
 export default app;
