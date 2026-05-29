@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { userRoutes } from "./http/routes/UserRoutes.js";
 import { characterRoutes } from "./http/routes/CharacterRoutes.js";
+import { rankingRoutes } from "./http/routes/RankingRoutes.js";
 
 dotenv.config();
 
@@ -25,5 +26,6 @@ app.get("/", async (req, res) => {
 
 app.use("/users", userRoutes);
 app.use("/characters", characterRoutes);
+app.use("/rankings", rankingRoutes);
 
 export default app;
