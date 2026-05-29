@@ -4,7 +4,7 @@ import { CharacterController } from "../../http/controllers/CharacterController.
 const characterController = new CharacterController();
 const router = express.Router();
 
-// character routes
+// characters routes
 router.post("/", (req, res) => characterController.create(req, res));
 router.get("/:id", (req, res) => characterController.findById(req, res));
 router.get("/", (req, res) => characterController.findAll(req, res));
